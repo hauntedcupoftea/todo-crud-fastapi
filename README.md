@@ -6,12 +6,12 @@ Assignment work by Anand Chauhan for a wobot.ai internship during 10 and 11th Ma
 
 Create a basic To-do list API.
 
--[x] Use REST API
--[ ] Should include authentication.
--[x] Implementation of CRUD functionalities.
--[x] Using FastAPI as framework.
--[x] Use MySQL/Mongo db.
--[ ] Include proper python code documentation.
+- [x] Use REST API
+- [x] Should include authentication.
+- [x] Implementation of CRUD functionalities.
+- [x] Using FastAPI as framework.
+- [x] Use MySQL/Mongo db.
+- [ ] Include proper python code documentation.
 
 ## Instruction to Run Code
 
