@@ -1,18 +1,17 @@
 from fastapi import FastAPI
-from api.routing import router as todo_router
-from tortoise.contrib.fastapi import register_tortoise
-from settings.configuration import Config
+from api import models
+from api.models import engine
+import api.routing as router
 
 app = FastAPI()
-app.include_router(todo_router)
-register_tortoise(
-    app=app,
-    db_url=Config.DB_CONNECTION,
-    modules={'models': Config.DB_MODELS},
-    add_exception_handlers=True,
-    generate_schemas=False
-)
 
+models.Base.metadata.create_all(bind=engine)
+
+app.include_router(router.todo)
+app.include_router(router.user)
+app.include_router(router.auth)
+
+app = FastAPI()
 
 @app.get('/')
 def home():
