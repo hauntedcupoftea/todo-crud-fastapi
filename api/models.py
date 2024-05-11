@@ -14,6 +14,9 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def get_db():
+    """
+    Returns a database session that is closed after its use.
+    """
     db = SessionLocal()
     try:
         yield db
@@ -23,6 +26,7 @@ def get_db():
 
 Base = declarative_base()
 
+# define schema for to-do tasks
 class Todo(Base):
     __tablename__ = "todo_table"
     id = Column(Integer, primary_key=True, index=True)
@@ -31,6 +35,7 @@ class Todo(Base):
     user_id = Column(Integer, ForeignKey('user_table.id'))
     creator = relationship("User", back_populates="todo_table")
 
+# define schema for users along with its relationship
 class User(Base):
     __tablename__ = "user_table"
     id = Column(Integer, primary_key=True, index=True)
