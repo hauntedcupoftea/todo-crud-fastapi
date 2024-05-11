@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from api import schemas, models, oauth
 import api.functions as func
 
+# create routers for all three types of actions
 user = APIRouter(
     prefix="/user",
     tags=['users']
