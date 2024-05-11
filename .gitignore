@@ -3,6 +3,5 @@ venv
 .env
 .venv
 .vscode
-.idea
 migrations
 *.ini
