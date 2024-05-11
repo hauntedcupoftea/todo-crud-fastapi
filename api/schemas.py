@@ -1,15 +1,45 @@
-from .models import Todo
-from tortoise.contrib.pydantic import pydantic_model_creator
-from pydantic import BaseModel, Field
-from typing import Optional
+from pydantic import BaseModel
+from typing import List
+from typing import Union
 
-TodoGet = pydantic_model_creator(Todo, name='TodoGet')
+class Todo(BaseModel):
+    title : str
+    desc : str
+    class Config():
+        orm_mode = True
 
+class User(BaseModel):
+    name: str
+    email: str
+    password: str
 
-class TodoPost(BaseModel):
-    title: str = Field(min_length=3, max_length=100)
+class ShowUser(BaseModel):
+    name: str
+    email: str
+    todo_table : List[Todo] = []
+    class Config:
+        orm_mode = True 
 
+class ShowUserWithoutPass(BaseModel):
+    name: str
+    email: str
+    class Config:
+        orm_mode = True 
 
-class TodoPut(BaseModel):
-    title: Optional[str] = Field(None, min_length=3, max_length=100)
-    done: Optional[bool] = Field(None)
+class ShowTodo(BaseModel):
+    title : str
+    desc : str
+    creator : ShowUserWithoutPass
+    class Config():
+        orm_mode = True  
+
+class Login(BaseModel):
+    username: str
+    password: str
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    email: Union[str, None] = None
