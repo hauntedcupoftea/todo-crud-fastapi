@@ -3,7 +3,10 @@ from api import models
 from api.models import engine
 import api.routing as router
 
-app = FastAPI()
+app = FastAPI(
+    title='to-do backend',
+    version="1.0.0"
+    )
 
 models.Base.metadata.create_all(bind=engine)
 
