@@ -17,4 +17,5 @@ Create a basic To-do list API.
 
 1. Clone the repo.
 2. Install the requirements using the `pip install -r requirements.txt` command.
-3. Run the main.py file in the root of the folder.
+3. Ensure mySQL is configured properly, and edit [the test environment](./test.env) as required.
+4. Run the main.py file in the root of the folder.
