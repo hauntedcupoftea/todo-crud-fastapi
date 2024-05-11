@@ -1,3 +1,8 @@
+"""
+This module returns the BaseModel children defined in the FastAPI documentation.
+Includes everything, functions almost as import datatypes and structures for the purposes
+of writing the API.
+"""
 from pydantic import BaseModel
 from typing import List
 from typing import Union

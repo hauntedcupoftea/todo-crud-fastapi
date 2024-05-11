@@ -1,3 +1,6 @@
+"""
+Oauth2 stuff. Thanks, google.
+"""
 from fastapi import Depends, status, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta

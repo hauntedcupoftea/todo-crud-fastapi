@@ -1,3 +1,6 @@
+"""
+Includes databast connectons, session creation and schema for required tables.
+"""
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
@@ -24,7 +27,7 @@ def get_db():
         db.close()
 
 
-Base = declarative_base()
+Base = declarative_base() # interface to implement
 
 # define schema for to-do tasks
 class Todo(Base):
