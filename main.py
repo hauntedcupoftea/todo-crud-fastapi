@@ -14,8 +14,6 @@ app.include_router(router.todo)
 app.include_router(router.user)
 app.include_router(router.auth)
 
-app = FastAPI()
-
 @app.get('/')
 def home():
     return "Welcome to todos api"
